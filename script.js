@@ -1,3 +1,25 @@
+// 1. Elementlarni ushlab olamiz
+const themeToggleBtn = document.getElementById('theme-toggle');
+const htmlRoot = document.documentElement; // <html> tegi
+
+// 2. Sayt yuklanganda avvalgi tanlangan rejimni tiklash (localStorage)
+if (localStorage.getItem('theme') === 'dark') {
+    htmlRoot.classList.add('dark');
+} else {
+    htmlRoot.classList.remove('dark');
+}
+
+// 3. Tugma bosilganda 'dark' klassini TOGGLE (yoqish/o'chirish) qilish
+themeToggleBtn.addEventListener('click', () => {
+    htmlRoot.classList.toggle('dark');
+
+    // Foydalanuvchi tanlovini xotirada (localStorage) saqlab qo'yish
+    if (htmlRoot.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
 // Cart State
 let cart = [];
 
